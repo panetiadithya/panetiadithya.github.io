@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio website of Paneti Adithya.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Paneti Adithya | Personal Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.055);
+      --panel-border: rgba(255,255,255,.11);
+      --text: #f4f7ff;
+      --muted: #aab5cc;
+      --accent: #77a7ff;
+      --accent2: #8de1d0;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 5%, rgba(71,116,210,.22), transparent 38%),
+        radial-gradient(ellipse at 90% 25%, rgba(44,164,151,.13), transparent 32%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(11,16,32,.78);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    nav { min-height: 70px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-weight: 800; letter-spacing: .08em; font-size: .95rem; }
+    .brand span { color: var(--accent); }
+    .navlinks { display:flex; gap:24px; color:var(--muted); font-size:.92rem; }
+    .navlinks a:hover { color:var(--text); }
+    .hero { min-height: 590px; display:grid; align-items:center; padding:90px 0 80px; }
+    .eyebrow { color:var(--accent2); text-transform:uppercase; letter-spacing:.19em; font-size:.76rem; font-weight:750; }
+    h1 { font-size:clamp(2.7rem, 7vw, 5.6rem); line-height:1.04; letter-spacing:-.055em; margin:18px 0; max-width:850px; }
+    h1 span { color:var(--accent); }
+    .intro { color:var(--muted); max-width:650px; font-size:1.1rem; margin:0 0 30px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 19px; border-radius:12px; font-weight:700; border:1px solid var(--panel-border); transition:.2s ease; }
+    .btn.primary { background:linear-gradient(120deg,#78a8ff,#7bd9ce); color:#07101e; border:0; }
+    .btn:hover { transform:translateY(-2px); }
+    section { padding:58px 0; }
+    .section-head { margin-bottom:24px; }
+    h2 { font-size:clamp(1.7rem,4vw,2.35rem); letter-spacing:-.035em; margin:0 0 7px; }
+    .sub { color:var(--muted); margin:0; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .card { background:var(--panel); border:1px solid var(--panel-border); border-radius:20px; padding:25px; box-shadow:0 18px 50px rgba(0,0,0,.12); }
+    .card h3 { margin:0 0 8px; font-size:1.12rem; }
+    .card p { color:var(--muted); margin:0; }
+    .tag { display:inline-block; color:var(--accent2); font-size:.78rem; font-weight:750; letter-spacing:.08em; text-transform:uppercase; margin-bottom:10px; }
+    .edu-card { position:relative; }
+    .edu-card:before { content:""; position:absolute; left:-1px; top:24px; bottom:24px; width:3px; border-radius:4px; background:linear-gradient(var(--accent),var(--accent2)); }
+    .links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .link-card { display:flex; align-items:center; justify-content:space-between; gap:15px; padding:17px 19px; border:1px solid var(--panel-border); border-radius:15px; background:var(--panel); transition:.2s ease; }
+    .link-card:hover { border-color:rgba(119,167,255,.55); transform:translateY(-2px); }
+    .link-card small { display:block; color:var(--muted); margin-top:2px; }
+    .arrow { color:var(--accent2); font-size:1.2rem; }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .contact-item { padding:18px; border-radius:15px; background:var(--panel); border:1px solid var(--panel-border); overflow-wrap:anywhere; }
+    .contact-item small { display:block; color:var(--muted); margin-bottom:5px; }
+    footer { border-top:1px solid rgba(255,255,255,.08); color:var(--muted); padding:26px 0 35px; font-size:.88rem; }
+    .footer-inner { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    @media (max-width:700px) {
+      .navlinks { gap:13px; font-size:.82rem; }
+      .navlinks a:nth-child(2) { display:none; }
+      .hero { min-height:520px; padding:75px 0 55px; }
+      .grid,.links,.contact-grid { grid-template-columns:1fr; }
+      section { padding:43px 0; }
+      .card { padding:21px; }
+    }
+    @media (max-width:390px) {
+      .wrap { width:calc(100% - 28px); }
+      .brand { font-size:.82rem; }
+      .navlinks { gap:10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">PANETI <span>ADITHYA</span></a>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#profiles">Profiles</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="eyebrow">Personal Portfolio</div>
+        <h1>Hello, I'm<br><span>Paneti Adithya.</span></h1>
+        <p class="intro">Welcome to my personal website. This is where you can learn about my education, explore my professional and coding profiles, and get in touch with me.</p>
+        <div class="actions">
+          <a class="btn primary" href="#profiles">Explore My Profiles</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About Me</h2>
+          <p class="sub">A quick introduction.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Who I am</span>
+          <h3>Paneti Adithya</h3>
+          <p>I am an engineering student. I created this website as a simple place to share my background and make my professional, coding, and social profiles easy to find.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Education</h2>
+          <p class="sub">My academic background.</p>
+        </div>
+        <div class="grid">
+          <article class="card edu-card">
+            <span class="tag">School</span>
+            <h3>Sri Gowtham High School</h3>
+            <p>Yerraguntla</p>
+          </article>
+          <article class="card edu-card">
+            <span class="tag">College</span>
+            <h3>Rajeev Gandhi Memorial College of Engineering and Technology</h3>
+            <p>Nandyal</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="profiles">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Find Me Online</h2>
+          <p class="sub">Connect with me and explore my work.</p>
+        </div>
+        <div class="links">
+          <a class="link-card" href="https://www.linkedin.com/in/adithya-paneti-4948223a0?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">
+            <span><strong>LinkedIn</strong><small>Professional profile</small></span><span class="arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://leetcode.com/u/adithyapaneti" target="_blank" rel="noopener noreferrer">
+            <span><strong>LeetCode</strong><small>Coding practice profile</small></span><span class="arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://github.com/panetiadithya" target="_blank" rel="noopener noreferrer">
+            <span><strong>GitHub</strong><small>Code and projects</small></span><span class="arrow">↗</span>
+          </a>
+          <a class="link-card" href="https://www.facebook.com/share/1CKivsKA6H/" target="_blank" rel="noopener noreferrer">
+            <span><strong>Facebook</strong><small>Social profile</small></span><span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Get in Touch</h2>
+          <p class="sub">Feel free to contact me.</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-item" href="tel:+919618595046"><small>Mobile</small><strong>+91 96185 95046</strong></a>
+          <a class="contact-item" href="mailto:panetiadithya0610@gmail.com"><small>Email</small><strong>panetiadithya0610@gmail.com</strong></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Paneti Adithya. All rights reserved.</span>
+      <span>Personal Portfolio</span>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
